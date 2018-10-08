@@ -91,17 +91,18 @@ bot.on('message', message => {
     
     if (message.content === prefix + "ban") {
 
-    (!message.channel.permissionsFor(message.member).hasPermission("BAN_MEMBERS"))
-        message.reply("De 1, j'ai la flèmme, de 2 t'as pas les perms et de 3 t'es un fdp à vouloir ban https://media.tenor.com/images/af630f8d408127ba0a0e96a62bfb4e4c/tenor.gif")
-    }else{
-        var banmember = message.mentions.members.first();
-        if(!banmember){
-   
+        if (!message.channel.permissionsFor(message.member).hasPermission("BAN_MEMBERS")){
+            message.reply("De 1, j'ai la flèmme, de 2 t'as pas les perms et de 3 t'es un fdp à vouloir ban https://media.tenor.com/images/af630f8d408127ba0a0e96a62bfb4e4c/tenor.gif")
         }else{
-            message.channel.send(`Bah c'est le ban  ! En même temps, il était pas trés utile.. https://i.imgur.com/O3DHIA5.gif`);
-            banmember.ban().then((member) => {
-        }).catch(() => {
-            message.channel.send("De 1, j'ai la flèmme, de 2 t'as pas les perms et de 3 t'es un fdp à vouloir ban https://media.tenor.com/images/af630f8d408127ba0a0e96a62bfb4e4c/tenor.gif ")
-        })
-    }
+            var banmember = message.mentions.members.first();
+            if(!banmember){
+                message.reply("Y'as pas de gars avec ce nom là sur le serv t'es con ou quoi ?");
+            }else{
+                banmember.ban().then((member) => {
+                message.channel.send(`${member.displayName} à été ban ! En même temps, il était pas trés utile.. https://i.imgur.com/O3DHIA5.gif`);
+            }).catch(() => {
+                message.channel.send("De 1, j'ai la flèmme, de 2 t'as pas les perms et de 3 t'es un fdp à vouloir ban https://media.tenor.com/images/af630f8d408127ba0a0e96a62bfb4e4c/tenor.gif ")
+            })
+        }
+        }
     }}})
