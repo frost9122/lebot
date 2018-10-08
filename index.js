@@ -69,10 +69,6 @@ bot.on('message', message => {
         message.channel.send ("Wesh la famille");
         console.log(`wlh lui c'est le sang`)
     }
-    if (message.content === "*ping"){
-        message.channel.send("PONG TA MÈRE");
-        console.log("c'est un ouf lui")
-    }
     if(message.content === prefix + "xpstat"){
         var xp = db.get("xp").filter({user: msgauthor}).find('xp').value()
         var xpfinal = Object.values(xp);
