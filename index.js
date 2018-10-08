@@ -1,6 +1,6 @@
 const Discord =require('discord.js');
 
-const client =new Discord.Client();
+const bot = new Discord.Client();
 const low = require(`lowdb`)
 var prefix = "*";
 const FileSync = require('lowdb/adapters/FileSync')
