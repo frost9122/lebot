@@ -87,7 +87,7 @@ bot.on('message', message => {
             .setColor('#5A01F4')
             .setThumbnail("http://www.davnet.be/Files/Image/Help.jpg")
             .setImage("https://media.giphy.com/media/phJ6eMRFYI6CQ/giphy.gif")
-            .addField("Commandes du bot ! Tout fonctionne avec le préfixe *", " -help: Affiche les commandes du bot\n-ban + @utilisateur: pour ban un membre\n-ping: le bot vous répond\n-xpstat: Affiche l'xp que vous avez accumulé (En fonction du nombre de messages écris.)\n-image: Vous donne une image aléatoire\n-salut (sans le *): le bot vous réponds\n-bonjour (toujours sans le *) le bot réponds encore")
+            .addField("Commandes du bot ! Tout fonctionne avec le préfixe *", " -help: Affiche les commandes du bot\n-ban + @utilisateur: pour ban un membre\n-ping: le bot vous répond\n-xpstat: Affiche l'xp que vous avez accumulé (En fonction du nombre de messages écris.(Commande légèrement buguée (Database qui me gonfle.)))\n-image: Vous donne une image aléatoire\n-salut (sans le *): le bot vous réponds\n-bonjour (toujours sans le *) le bot réponds encore")
             .setFooter("D'autres commandes sont à venir, soit patient jeune Padawan")
         message.channel.sendEmbed(help_embed);
         console.log("Commande help demandée !")
