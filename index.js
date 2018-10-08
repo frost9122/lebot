@@ -9,7 +9,6 @@ const storeadapter = new FileSync('store.json');
 const db = low(adapter);
 const storedb = low(storeadapter);
 
-var bot = new Discord.Client();
 var prefix = ("*");
 var randnum = 0
 var botenabled = true;
@@ -45,7 +44,14 @@ bot.on('message', message => {
     }
 
 
-
+    if (message.content === prefix + "ping") {
+    var startTime = Date.now();
+  msg.channel.send("Calcul en cours...").then((message) => {
+    var endTime = Date.now();
+     message.edit("Bot : " + Math.round(endTime - startTime) + " ms\nAPI : "+Math.round(bot.ping)+" ms");
+	  console.log("test")
+    })
+}
 
 
     if (message.content === prefix + "image") {
