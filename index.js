@@ -2,15 +2,19 @@ const Discord =require('discord.js');
 
 const bot = new Discord.Client();
 const low = require(`lowdb`)
-var prefix = "*";
 const FileSync = require('lowdb/adapters/FileSync')
 var token = process.env.TOKEN
 const adapter = new FileSync('database.json');
 const storeadapter = new FileSync('store.json');
 const db = low(adapter);
 const storedb = low(storeadapter);
-db.defaults({ histoires: [], xp: []}).write()
 
+var bot = new Discord.Client();
+var prefix = ("*");
+var randnum = 0
+var botenabled = true;
+var storynumber = db.get('histoires').map('story_value').value();
+var dispatcher;
 bot.on('ready', () => {
     console.log(`${bot.user.username}  starting.`);
     console.log(`Serving ${bot.guilds.size} guilds.`);
@@ -18,6 +22,7 @@ bot.on('ready', () => {
     bot.user.setActivity("Être dev par frost#1246 [*help]");
 
 });
+db.defaults({ histoires: [], xp: []}).write()
 
 bot.login(token);
 
