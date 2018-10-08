@@ -46,7 +46,7 @@ bot.on('message', message => {
 
     if (message.content === prefix + "ping") {
     var startTime = Date.now();
-  msg.channel.send("Calcul en cours...").then((message) => {
+  message.channel.send("Calcul en cours...").then((message) => {
     var endTime = Date.now();
      message.edit("Bot : " + Math.round(endTime - startTime) + " ms\nAPI : "+Math.round(bot.ping)+" ms");
 	  console.log("test")
