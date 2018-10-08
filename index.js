@@ -12,8 +12,8 @@ const storedb = low(storeadapter);
 db.defaults({ histoires: [], xp: []}).write()
 
 bot.on('ready', () => {
-    console.log(`${client.user.username}  starting.`);
-    console.log(`Serving ${client.guilds.size} guilds.`);
+    console.log(`${bot.user.username}  starting.`);
+    console.log(`Serving ${bot.guilds.size} guilds.`);
 
     bot.user.setActivity("Être dev par frost#1246 [*help]");
 
