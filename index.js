@@ -21,9 +21,8 @@ bot.on('ready', () => {
 
 bot.login(token);
 
-bot.on('message', message => { 
-    msg = message.content.toLowerCase();
-
+bot.on('message', message => {
+    
     var msgauthor = message.author.id;
 
     if(message.author.bot)return;
