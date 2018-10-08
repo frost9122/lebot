@@ -10,17 +10,18 @@ const storeadapter = new FileSync('store.json');
 const db = low(adapter);
 const storedb = low(storeadapter);
 db.defaults({ histoires: [], xp: []}).write()
-client.on('ready', () => {
+
+bot.on('ready', () => {
     console.log(`${client.user.username}  starting.`);
     console.log(`Serving ${client.guilds.size} guilds.`);
 
-    client.user.setActivity("Être dev par frost#1246 [*help]");
+    bot.user.setActivity("Être dev par frost#1246 [*help]");
 
 });
 
 bot.login(token);
 
-client.on('message', message => { 
+bot.on('message', message => { 
     msg = message.content.toLowerCase();
 
     var msgauthor = message.author.id;
