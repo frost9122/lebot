@@ -28,9 +28,9 @@ bot.login(token);
 bot.on('message', message => {
     
     var msgauthor = message.author.id;
-
+	
     if(message.author.bot)return;
-
+	db.get("xp").find({user: msgauthor}).assign({user: msgauthor, xp: userxp[1] += 1}).write();
     if(!db.get("xp").find({user: msgauthor}).value()){
         db.get("xp").push({user: msgauthor, xp: 1}).write();
     }else{
