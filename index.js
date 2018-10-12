@@ -115,7 +115,7 @@ let embed_fields = [{
             }
         ];
 
-        msg.channel.send({
+        message.channel.send({
             embed: {
                 author: {
                     name: `Jojo le bot`,
