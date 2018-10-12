@@ -28,7 +28,7 @@ bot.login(token);
 
 bot.on('message', message => {
     
-    var msgauthor = message.author.id;
+    var msgauthor = message.author.tag;
 	
     if(message.author.bot)return;
     if(!db.get("xp").find({user: msgauthor}).value()){
