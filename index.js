@@ -57,7 +57,7 @@ bot.on('message', message => {
         message.channel.send ( {files: ["./images/" + imageNumber + ".png" ]} )
     }
     if (message.content === "*debug") {
-	    let upTime = Math.round(os.uptime());
+	    let upTime = Math.round(bot.uptime());
  let upTime1 = Math.round(process.uptime());
     console.log(upTime);
      let upTimeSeconds2 = upTime1;
