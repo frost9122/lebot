@@ -8,6 +8,7 @@ const adapter = new FileSync('database.json');
 const storeadapter = new FileSync('store.json');
 const db = low(adapter);
 const storedb = low(storeadapter);
+const os = require('os');
 
 var prefix = ("*");
 var randnum = 0
@@ -57,7 +58,7 @@ bot.on('message', message => {
         message.channel.send ( {files: ["./images/" + imageNumber + ".png" ]} )
     }
     if (message.content === "*debug") {
-	    let upTime = Math.round(bot.uptime());
+	    let upTime = Math.round(os.uptime());
  let upTime1 = Math.round(process.uptime());
     console.log(upTime);
      let upTimeSeconds2 = upTime1;
