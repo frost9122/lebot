@@ -56,7 +56,76 @@ bot.on('message', message => {
         imageNumber = Math.floor (Math.random() * (number - 1 + 1)) + 1;
         message.channel.send ( {files: ["./images/" + imageNumber + ".png" ]} )
     }
-    
+    if (message.content === "*debug") {
+	    let upTime = Math.round(os.uptime());
+ let upTime1 = Math.round(process.uptime());
+    console.log(upTime);
+     let upTimeSeconds2 = upTime1;
+        let upTimeOutput2 = "";
+        if (upTime<60) {
+            upTimeOutput2 = `${upTime1}s`;
+        } else if (upTime1<3600) {
+            upTimeOutput2 = `${Math.floor(upTime1/60)}m ${upTime1%60}s`;
+        } else if (upTime1<86400) {
+            upTimeOutput2 = `${Math.floor(upTime1/3600)}h ${Math.floor(upTime1%3600/60)}m ${upTime1%3600%60}s`;
+        } else if (upTime1<604800) {
+            upTimeOutput2 = `${Math.floor(upTime1/86400)}d ${Math.floor(upTime1%86400/3600)}h ${Math.floor(upTime1%86400%3600/60)}m ${upTime%86400%3600%60}s`;
+        }
+         let upTimeSeconds = upTime;
+        let upTimeOutput = "";
+
+        if (upTime<60) {
+            upTimeOutput = `${upTime}s`;
+        } else if (upTime<3600) {
+            upTimeOutput = `${Math.floor(upTime/60)}m ${upTime%60}s`;
+        } else if (upTime<86400) {
+            upTimeOutput = `${Math.floor(upTime/3600)}h ${Math.floor(upTime%3600/60)}m ${upTime%3600%60}s`;
+        } else if (upTime<604800) {
+            upTimeOutput = `${Math.floor(upTime/86400)}d ${Math.floor(upTime%86400/3600)}h ${Math.floor(upTime%86400%3600/60)}m ${upTime%86400%3600%60}s`;
+        }
+let embed_fields = [{
+                name: "Info système:",
+                value: `${process.platform}-${process.arch} avec le module ${process.release.name} version ${process.version.slice(1)}`,
+                inline: true
+            },
+            {
+                name: "Info processeur: PID",
+                value: `${process.pid}`,
+                inline: true
+            },
+            {
+                name: "Utilisation de la mémoire:",
+                value: `${Math.ceil(process.memoryUsage().heapTotal / 1000000)} MB`,
+                inline: true
+            },
+            {
+                name: "Utilisation de la mémoire système:",
+                value: `${Math.ceil((os.totalmem() - os.freemem()) / 1000000)} of ${Math.ceil(os.totalmem() / 1000000)} MB`,
+                inline: true
+            },
+
+            {
+                name: "Allumé depuis:",
+                value: `:clock1230: ${upTimeOutput2}`,
+                inline: true
+            },{
+                name: 'License:',
+                value: `**Discord.js**`
+            }
+        ];
+
+        msg.channel.send({
+            embed: {
+                author: {
+                    name: `Jojo le bot`,
+                    icon_url: `https://cdn.discordapp.com/attachments/378626295808131072/500098599166672897/1150945-free-download-ban-nanatsu-no-taizai-wallpaper-2560x1440-images.jpg`,
+                    url:'http://google.fr'
+                },
+                color: 0x00FF00,
+                fields: embed_fields
+            }
+        });
+}
 
     if (message.content === "bonjour") { 
         message.channel.send ("yo mamene");
