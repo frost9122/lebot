@@ -9,7 +9,7 @@ const storeadapter = new FileSync('store.json');
 const db = low(adapter);
 const storedb = low(storeadapter);
 const os = require('os');
-
+var msg = ("message");
 var prefix = ("*");
 var randnum = 0
 var botenabled = true;
